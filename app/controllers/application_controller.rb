@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    #Make the below methods available in our tempaltes/views
+    # Add flash types for bootstrap...
+    add_flash_types :danger, :info, :warning, :success
+    #Make the below methods available in our templates/views
     helper_method :current_user, :logged_in?
 
     def current_user

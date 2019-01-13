@@ -11,3 +11,13 @@ users = User.create([
     { name: "Stephanie", email: "stephanie@gmail.com", password: "test2" },
     { name: "JS", email: "js@gmail.com", password: "test3" }
 ])
+
+photos = Photo.create([
+    {
+        img: " ",
+        food_name: " ",
+        food_type: " ",
+        vendor: " ", 
+        vendor_loc: " "
+    }
+])

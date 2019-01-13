@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 # Refactoring Set Bean and Authorize
-  before_action :authorize, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # Action to show ALL Users photos
   def index
@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     if params[:id].to_i == current_user.id
       current_user
     else
-      redirect_to users_path
-      "Not Authenticated"
+      redirect_to users_path, danger:  "Error! Invalid email or password!"
     end
   end
 
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
     set_user
 
     if @user.update_attributes(user_params)
-      redirect_to users_path, notice: "Profile successfully updated!"
+      redirect_to users_path, success: "Profile successfully updated!"
     else
       render :edit
     end
@@ -53,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     set_user
     @user.destroy
-    redirect_to users_path, notice: "Profile successfully deleted!"
+    redirect_to users_path, success: "Profile successfully deleted!"
   end
 
   # REFACTORING to make dry

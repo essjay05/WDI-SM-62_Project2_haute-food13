@@ -16,10 +16,8 @@
   <body>
     <div class="container">
       <%= render 'partials/navbar' %>
+      <%= render 'partials/flash_msgs' %>
       
-      <% flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, class: name %>
-      <% end -%>
 
       <%= yield %>
     </div>
